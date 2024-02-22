@@ -1,5 +1,6 @@
 import { searchCities, getWeatherByCity } from './weatherAPI';
 
+const API_TOKEN = import.meta.env.VITE_TOKEN;
 /**
  * Cria um elemento HTML com as informações passadas
  */
@@ -77,8 +78,9 @@ export function showForecast(forecastList) {
  * Recebe um objeto com as informações de uma cidade e retorna um elemento HTML
  */
 export function createCityElement(cityInfo) {
-  const { name, country, temp, condition, icon } = cityInfo;
+  const { name, country, temp, condition, icon, url } = cityInfo;
 
+  const list = document.querySelector('#cities');
   const cityElement = createElement('li', 'city');
 
   const headingElement = createElement('div', 'city-heading');
@@ -104,31 +106,53 @@ export function createCityElement(cityInfo) {
   cityElement.appendChild(headingElement);
   cityElement.appendChild(infoContainer);
 
+  const buttonAPI = document.createElement('button');
+  list.appendChild(cityElement);
+  buttonAPI.textContent = 'Ver previsão';
+  cityElement.appendChild(buttonAPI);
+
+  buttonAPI.addEventListener('click', async (event) => {
+    event.preventDefault();
+    const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?lang=pt&key=${API_TOKEN}&q=${url}&days=7`);
+    const data = await response.json();
+    const forecastArray = await data.forecast.forecastday.map((forecast) => {
+      return {
+        date: forecast.date,
+        maxTemp: forecast.day.maxtemp_c,
+        minTemp: forecast.day.mintemp_c,
+        condition: forecast.day.condition.text,
+        icon: forecast.day.condition.icon,
+      };
+    });
+    showForecast(forecastArray);
+  });
+
   return cityElement;
 }
 
 /**
  * Lida com o evento de submit do formulário de busca
  */
-export function handleSearch(event) {
+export async function handleSearch(event) {
   event.preventDefault();
   clearChildrenById('cities');
 
   const searchInput = document.getElementById('search-input');
   const searchValue = searchInput.value;
 
-  const citiesList = document.getElementById('cities');
+  try {
+    const resultsArray = await searchCities(searchValue);
 
-  searchCities(searchValue)
-    .then((resultsArray) => {
-      return Promise.all(resultsArray.map((city) => {
-        return getWeatherByCity(city.url);
-      }));
-    })
-    .then((weatherDataArray) => {
-      weatherDataArray.forEach((weatherData) => {
-        const cityElement = createCityElement(weatherData);
-        citiesList.appendChild(cityElement);
-      });
+    const weatherDataArray = await Promise.all(resultsArray.map(async (city) => {
+      return getWeatherByCity(city.url);
+    }));
+
+    const citiesList = document.getElementById('cities');
+    weatherDataArray.forEach((weatherData) => {
+      const cityElement = createCityElement(weatherData);
+      citiesList.appendChild(cityElement);
     });
+  } catch (error) {
+    console.error('Error handling search:', error);
+  }
 }

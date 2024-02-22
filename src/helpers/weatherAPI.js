@@ -9,7 +9,6 @@ export const searchCities = async (term) => {
     if (data.length === 0) {
       alert('Nenhuma cidade encontrada');
     }
-
     return data;
   } catch (error) {
     console.error('Ocorreu um erro ao buscar cidades:', error);
@@ -24,7 +23,6 @@ export const getWeatherByCity = async (cityURL) => {
 
     const { temp_c: temp, condition: { text: condition, icon } } = data.current;
     const { country, name, url } = data.location;
-
     return { temp, condition, icon, country, name, url };
   } catch (error) {
     console.error('Error:', error);
