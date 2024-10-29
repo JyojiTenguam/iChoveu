@@ -26,13 +26,13 @@ O projeto consiste na implementação das seguintes funções:
 1. Clone este repositório para o seu computador:
 
     ```bash
-    git clone git@github.com:JyojiTenguam/project-ichoveu.git
+    git clone git@github.com:JyojiTenguam/iChoveu.git
     ```
 
 2. Navegue até o diretório do projeto:
 
     ```bash
-    cd project-ichoveu
+    cd iChoveu
     ```
 
 3. Instale as dependências do projeto:
