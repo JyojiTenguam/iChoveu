@@ -20,29 +20,3 @@ O projeto consiste na implementação das seguintes funções:
 ### Requisitos Bônus
 
 - **Cobertura Completa de Testes**: Implementa testes para garantir uma cobertura completa (100%) das funções principais.
-
-## Instruções de Instalação e Uso
-
-1. Clone este repositório para o seu computador:
-
-    ```bash
-    git clone git@github.com:JyojiTenguam/iChoveu.git
-    ```
-
-2. Navegue até o diretório do projeto:
-
-    ```bash
-    cd iChoveu
-    ```
-
-3. Instale as dependências do projeto:
-
-    ```bash
-    npm install
-    ```
-
-4. Execute os testes para verificar se tudo está funcionando corretamente:
-
-    ```bash
-    npm test
-    ```
