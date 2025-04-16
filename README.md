@@ -1,55 +1,73 @@
-# Projeto iChoveu ☔
 
-Boas-vindas ao repositório do projeto iChoveu! Este projeto foi desenvolvido como parte do curso da Trybe, com o objetivo de implementar funcionalidades para busca de informações meteorológicas de diversas cidades. Abaixo, você encontrará orientações sobre como estruturar o desenvolvimento do seu projeto e as funcionalidades que devem ser implementadas.
+# ☔ iChoveu
 
-## Tecnologias Utilizadas
+Uma aplicação web que fornece informações meteorológicas em tempo real com base na localização do usuário ou em cidades pesquisadas. Desenvolvida como exercício do módulo de Front-end da Trybe.
 
-- JavaScript
-- HTML
-- CSS
+## ✨ Demonstração
 
-## Funcionalidades do Projeto
+> A aplicação exibe dados climáticos atualizados, incluindo temperatura, condições do tempo e previsão para os próximos dias, utilizando uma API de clima.
 
-O projeto consiste na implementação das seguintes funções:
+## 📋 Índice
 
-1. **searchCities**: Implementa a função `searchCities` no arquivo `helpers/weatherAPI.js`, responsável por buscar cidades na API.
-2. **getWeatherByCity**: Implementa a função `getWeatherByCity` no arquivo `helpers/weatherAPI.js` e complementa a função `handleSearch` em `helpers/pageFunctions.js`.
-3. **Listar cidades retornadas**: Após a chamada da API, renderiza o retorno utilizando a função `createCityElement`.
-4. **Botão de previsão para 7 dias**: Adiciona um botão dentro do elemento de cada cidade para ver a previsão dos próximos 7 dias.
+- [Sobre](#-sobre)
+- [Habilidades desenvolvidas](#-habilidades-desenvolvidas)
+- [Tecnologias utilizadas](#-tecnologias-utilizadas)
+- [Como rodar o projeto](#-como-rodar-o-projeto)
+- [Autor](#-autor)
 
-### Requisitos Bônus
+## 💡 Sobre
 
-- **Cobertura Completa de Testes**: Implementa testes para garantir uma cobertura completa (100%) das funções principais.
+Neste projeto, desenvolvemos uma aplicação que permite aos usuários obter informações meteorológicas atuais e previsões futuras para diferentes localidades. As principais funcionalidades incluem:
 
-## Instruções de Instalação e Uso
+- Busca por cidade para obter dados climáticos
+- Exibição de temperatura atual, condições do tempo e previsão para os próximos dias
+- Utilização de APIs públicas para obtenção de dados meteorológicos
 
-1. **Faça um Fork do Repositório**:
-   - Acesse o [repositório original do projeto](https://github.com/JyojiTenguam/iChoveu) no GitHub e clique em **"Fork"** no canto superior direito para criar uma cópia do projeto na sua conta.
+O projeto foi uma oportunidade para aplicar conhecimentos em consumo de APIs, manipulação de dados e apresentação de informações de forma clara e responsiva.
 
-2. **Clone o Repositório Forkado**:
-   - Após fazer o fork, copie o link do seu repositório e clone-o para o seu computador:
+## 🛠️ Habilidades desenvolvidas
 
-    ```bash
-    git clone git@github.com:seu-usuario/iChoveu.git
-    ```
+- Consumo de APIs RESTful
+- Manipulação e exibição de dados em tempo real
+- Desenvolvimento de interfaces responsivas
+- Gerenciamento de estado em aplicações React
+- Boas práticas de desenvolvimento front-end
 
-3. **Navegue até o Diretório do Projeto**:
+## 🧪 Tecnologias utilizadas
 
-    ```bash
-    cd iChoveu
-    ```
+- React
+- JavaScript ES6+
+- CSS3
+- APIs de clima (como OpenWeatherMap)
+- Axios para requisições HTTP
 
-4. **Instale as Dependências**:
+## 🚀 Como rodar o projeto
 
-    ```bash
-    npm install
-    ```
+1. Clone o repositório:
 
-5. **Execute os Testes**:
-   - Execute os testes para verificar se tudo está funcionando corretamente:
+```bash
+git clone https://github.com/tryber/iChoveu.git
+```
 
-    ```bash
-    npm test
-    ```
+2. Acesse a pasta do projeto
 
-Substitua `"seu-usuario"` pelo seu nome de usuário no GitHub para que o link do fork seja correto.
+```bash
+cd iChoveu
+```
+
+3. Instale as dependências
+
+```bash
+npm install
+```
+
+4. Inicie o servidor local
+
+```bash
+npm start
+```
+> A aplicação abrirá no navegador em http://localhost:3000
+
+## 👤 Autor
+
+Este projeto foi desenvolvido como parte do curso de Desenvolvimento Web da Trybe, por Jyoji Tenguam.
